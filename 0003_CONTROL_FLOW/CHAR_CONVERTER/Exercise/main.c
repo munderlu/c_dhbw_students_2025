@@ -9,6 +9,9 @@ int main()
     scanf("%c", &character);
 
     // is numeric
+    if(character - 0x30 < 10){
+        printf("Es handelt sich bei %c um eine Zahl\n", character);
+    }
 
     // is upper case
 
