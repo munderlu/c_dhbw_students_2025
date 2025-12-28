@@ -1,0 +1,47 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.5 Chrome/138.0.7204.251 Electron/37.6.1 Safari/537.36" version="28.2.5">
+  <diagram name="Seite-1" id="YAiaEC3jrQLeE_vBepVi">
+    <mxGraphModel dx="728" dy="563" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="pZa3EU2hjy-kctLv0rjL-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="pZa3EU2hjy-kctLv0rjL-1" target="pZa3EU2hjy-kctLv0rjL-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pZa3EU2hjy-kctLv0rjL-1" value="Wähle natürlich Zahlen a und b mit a&amp;gt;b, deren ggT gefunden werden soll" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="325" y="320" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pZa3EU2hjy-kctLv0rjL-2" value="Finde den ggT von a und b" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="220" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pZa3EU2hjy-kctLv0rjL-12" value="ja" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="pZa3EU2hjy-kctLv0rjL-4" target="pZa3EU2hjy-kctLv0rjL-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pZa3EU2hjy-kctLv0rjL-14" value="nein" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="pZa3EU2hjy-kctLv0rjL-4" target="pZa3EU2hjy-kctLv0rjL-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pZa3EU2hjy-kctLv0rjL-4" value="Ist der r = 0" style="rhombus;whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="335" y="570" width="150" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pZa3EU2hjy-kctLv0rjL-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="pZa3EU2hjy-kctLv0rjL-7" target="pZa3EU2hjy-kctLv0rjL-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pZa3EU2hjy-kctLv0rjL-7" value="Teile ganzzahlig a / b und notiere den Rest r" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="460" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pZa3EU2hjy-kctLv0rjL-11" value="der ggT ist b" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="580" y="580" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pZa3EU2hjy-kctLv0rjL-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="pZa3EU2hjy-kctLv0rjL-13" target="pZa3EU2hjy-kctLv0rjL-7">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="180" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pZa3EU2hjy-kctLv0rjL-13" value="setze a = b&lt;div&gt;setzt b = r&lt;/div&gt;" style="whiteSpace=wrap;html=1;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="120" y="580" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
