@@ -113,6 +113,50 @@ Offizielle Unterlagen zur Einrichten finden Sie unter Anderem hier:
 
 ---
 
+## Make
+
+Make ist ein Build-Automatisierungstool.
+Um make unter Windows zu installieren, verwenden Sie am besten einen Paketmanager wie Scoop (scoop install make) oder installieren es manuell über die GnuWin32-Pakete oder als Teil einer MinGW/MSYS2-Umgebung, wobei Sie anschließend den Pfad zur make.exe zu den Systemvariablen hinzufügen müssen, damit das Programm in der Eingabeaufforderung oder PowerShell erkannt wird.
+
+### Installieren Sie Scoop
+
+1. Öffnen Sie PowerShell als Administrator.
+2. Führen Sie den folgenden Befehl aus, um die Ausführungsrichtlinie zu ändern:
+
+```powershell
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+3. Installieren Sie Scoop mit dem folgenden Befehl:
+
+```powershelliwr
+irm get.scoop.sh | iex
+```
+
+### Installieren Sie Make
+
+Da Sie nun den Paketenmanager Scoop installiert haben, können Sie Make mit dem folgenden Befehl installieren:
+
+```powershell
+scoop install make
+```
+
+Fügen Sie den Pfad zu Make zu den Umgebungsvariablen hinzu, falls Scoop dies nicht automatisch erledigt hat. Der Pfad sollte in etwa so aussehen:
+
+```plaintext
+C:\Users\<IhrBenutzername>\scoop\shims
+```
+
+### Testen Sie die Installation
+
+Öffnen Sie eine neue PowerShell-Sitzung und führen Sie den folgenden Befehl aus, um zu überprüfen, ob Make korrekt installiert wurde:
+
+```powershell
+make --version
+```
+
+---
+
 ## DIE FOLGEDNEN ABCHNITTE WERDEN IM LAUFE DER VORLESUNG EINGERICHTET / EINGEFÜHRT
 
 ### Debugging in VS Code
