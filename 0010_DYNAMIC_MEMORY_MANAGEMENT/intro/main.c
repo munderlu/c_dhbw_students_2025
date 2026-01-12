@@ -22,7 +22,7 @@ int main()
     }
 
     free(heapArray);
-    heapArray = NULL; //sonst haben wir einen dangling pointer
+    heapArray = NULL; // = (void*)0 sonst haben wir einen dangling pointer
 
     return 0;
 }
