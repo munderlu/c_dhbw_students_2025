@@ -61,7 +61,7 @@ void displayList(struct Node *head)
     printf("NULL\n");
 }
 
-// FUnktion um die Liste zu löschen
+// Funktion um die Liste zu löschen
 void deleteList(struct Node **head)
 {
     struct Node *temp = *head;

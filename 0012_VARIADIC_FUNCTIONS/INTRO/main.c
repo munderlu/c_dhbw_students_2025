@@ -2,6 +2,18 @@
 #include <stdarg.h>  // Variadic Functions Libary
 
 // Function for calculating the sum of a variable number of arguments
+int calcSumVariadicFunc(int count, ...){
+    va_list args;
+    int tempSum = 0;
+    va_start(args, count);
+    for (int i = 0; i < count; i++)
+    {
+        tempSum += va_arg(args, int);
+    }
+    va_end(args);
+    
+    return tempSum;
+}
 
 int main()
 {
