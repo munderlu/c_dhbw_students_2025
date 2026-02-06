@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C-Klausur Trainer</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f0f2f5; color: #1c1e21; line-height: 1.6; max-width: 800px; margin: 40px auto; padding: 20px; }
+        h1 { text-align: center; color: #2c3e50; }
+        .intro { text-align: center; margin-bottom: 30px; color: #7f8c8d; }
+        .quiz-container { display: flex; flex-direction: column; gap: 20px; }
+        .card { background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-left: 6px solid #3498db; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-2px); }
+        .question { font-weight: bold; font-size: 1.1em; margin-bottom: 15px; color: #2c3e50; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 4px; font-family: 'Consolas', monospace; color: #e74c3c; }
+        pre { background: #2d3436; color: #dfe6e9; padding: 15px; border-radius: 8px; overflow-x: auto; margin: 15px 0; }
+        details { margin-top: 15px; padding: 15px; background: #f8f9fa; border-radius: 8px; border: 1px solid #e1e4e8; }
+        summary { cursor: pointer; font-weight: bold; color: #3498db; outline: none; }
+        .explanation { margin-top: 10px; color: #34495e; }
+        .tag { display: inline-block; background: #3498db; color: white; padding: 2px 8px; border-radius: 20px; font-size: 0.8em; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+<h1>🚀 Der C-Klausur Trainer</h1>
+<p class="intro">Klicke auf die Fragen, um dein Wissen zu testen. Viel Erfolg!</p>
+
+<div class="quiz-container">
+
+    <div class="card">
+        <span class="tag">Strings</span>
+        <div class="question">Warum liefert <code>char s[] = "Hi"; printf("%d", (int)sizeof(s));</code> den Wert 3 zurück, obwohl "Hi" nur zwei Buchstaben hat?</div>
+        <details>
+            <summary>Antwort anzeigen</summary>
+            <div class="explanation">
+                C fügt automatisch das Null-Terminierungszeichen <code>\0</code> am Ende eines String-Literals hinzu. 
+                Der Speicher sieht so aus: <code>'H'</code>, <code>'i'</code>, <code>'\0'</code>. Das sind 3 Bytes.
+            </div>
+        </details>
+    </div>
+
+    <div class="card">
+        <span class="tag">Speicherverwaltung</span>
+        <div class="question">Was passiert, wenn du 100x <code>malloc()</code> in einer Schleife aufrufst, aber nie <code>free()</code>?</div>
+        <details>
+            <summary>Antwort anzeigen</summary>
+            <div class="explanation">
+                Es entsteht ein <strong>Memory Leak</strong>. Dein Programm verbraucht immer mehr Arbeitsspeicher, ohne ihn zurückzugeben. 
+                Irgendwann liefert <code>malloc</code> nur noch <code>NULL</code> zurück oder das System wird extrem langsam und beendet dein Programm.
+            </div>
+        </details>
+    </div>
+
+    <div class="card">
+        <span class="tag">Strukturen</span>
+        <div class="question">Was ist der Vorteil von <code>typedef struct { ... } Node;</code> gegenüber einer normalen <code>struct Node { ... };</code>?</div>
+        <details>
+            <summary>Antwort anzeigen</summary>
+            <div class="explanation">
+                Mit <code>typedef</code> kannst du Variablen einfach mit <code>Node n;</code> deklarieren. 
+                Ohne typedef müsstest du jedes Mal das Wort <code>struct</code> mitschreiben: <code>struct Node n;</code>. Es macht den Code also kürzer und lesbarer.
+            </div>
+        </details>
+    </div>
+
+    <div class="card">
+        <span class="tag">Pointer</span>
+        <div class="question">Wann schreibst du <code>p->wert</code> statt <code>p.wert</code>?</div>
+        <details>
+            <summary>Antwort anzeigen</summary>
+            <div class="explanation">
+                Den Pfeil <code>-></code> nutzt du immer dann, wenn <code>p</code> ein <strong>Pointer</strong> auf eine Struktur ist. 
+                Den Punkt <code>.</code> nutzt du, wenn <code>p</code> die Struktur-Variable selbst ist.
+            </div>
+        </details>
+    </div>
+
+    <div class="card">
+        <span class="tag">Unions</span>
+        <div class="question">Wie viel Speicher belegt diese Union?
+            <pre>union Test {
+    char c;    // 1 Byte
+    int i;     // 4 Byte
+    double d;  // 8 Byte
+};</pre>
+        </div>
+        <details>
+            <summary>Antwort anzeigen</summary>
+            <div class="explanation">
+                <strong>8 Byte.</strong> Eine Union belegt immer nur so viel Platz wie ihr größtes Element, da sich alle Member denselben Speicherbereich teilen.
+            </div>
+        </details>
+    </div>
+
+    <div class="card">
+        <span class="tag">Funktionen</span>
+        <div class="question">Welche Header-Datei und welches Makro brauchst du, um das erste variable Argument in einer Variadic Function zu lesen?</div>
+        <details>
+            <summary>Antwort anzeigen</summary>
+            <div class="explanation">
+                Du brauchst <code>#include &lt;stdarg.h&gt;</code>. Mit <code>va_start</code> initialisierst du die Liste und mit <code>va_arg(args, typ)</code> liest du das Argument aus.
+            </div>
+        </details>
+    </div>
+
+</div>
+
+<p style="text-align: center; margin-top: 40px; font-size: 0.9em;">
+    Tipp: Schaue dir für die Klausur besonders das Thema <strong>Linked Lists</strong> noch einmal im Skript (Lec 02) an!
+</p>
+
+</body>
+</html>

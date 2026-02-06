@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>C-Wissenstest Klausur</title>
+    <style>
+        body { font-family: sans-serif; max-width: 800px; margin: 40px auto; line-height: 1.6; background-color: #f4f7f6; }
+        .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        h1 { color: #2c3e50; text-align: center; }
+        details { background: #e8f4f8; padding: 10px; border-radius: 5px; cursor: pointer; }
+        summary { font-weight: bold; color: #2980b9; }
+        code { background: #eee; padding: 2px 5px; border-radius: 3px; font-family: monospace; }
+        .warning { color: #c0392b; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<h1>🧠 C-Klausur Checkpoint</h1>
+
+<div class="card">
+    <h3>Frage 1: Der verlorene Speicher</h3>
+    <p>Du reservierst Speicher mit <code>int *p = malloc(sizeof(int));</code> und schreibst danach <code>p = NULL;</code>. Was ist das Problem?</p>
+    <details>
+        <summary>Lösung anzeigen</summary>
+        <p>Dies ist ein <strong>Memory Leak</strong> (Speicherleck). Da du die Adresse, die in <code>p</code> stand, mit <code>NULL</code> überschrieben hast, hast du keine Möglichkeit mehr, auf den reservierten Speicher zuzugreifen oder ihn mit <code>free()</code> freizugeben. Der Speicher bleibt bis zum Programmende belegt.</p>
+    </details>
+</div>
+
+<div class="card">
+    <h3>Frage 2: Die String-Falle</h3>
+    <p>Was passiert hier: <code>char name[4] = "Test"; printf("%s", name);</code>?</p>
+    <details>
+        <summary>Lösung anzeigen</summary>
+        <p>Das Wort "Test" hat 4 Buchstaben. C benötigt aber ein 5. Zeichen für die Null-Terminierung (<code>\0</code>). <br>
+        In <code>name[4]</code> ist kein Platz für die <code>\0</code>. <code>printf</code> wird also im Speicher über das Array hinaus weiterlesen, bis es zufällig irgendwo auf eine Null stößt. Das führt zu "Garbage"-Ausgaben oder einem Absturz (Segmentation Fault).</p>
+    </details>
+</div>
+
+<div class="card">
+    <h3>Frage 3: Pointer & Arrays</h3>
+    <p>Ein <code>int arr[] = {10, 20, 30, 40}; int *ptr = arr;</code> ist gegeben. <br> Welchen Wert liefert <code>*(ptr + 2)</code>?</p>
+    <details>
+        <summary>Lösung anzeigen</summary>
+        <p>Der Wert ist <strong>30</strong>.</p>
+        <p><code>ptr</code> zeigt auf <code>arr[0]</code> (10).<br>
+           <code>ptr + 2</code> verschiebt den Zeiger um zwei <em>Integer-Größen</em> nach vorne (auf <code>arr[2]</code>).<br>
+           Das <code>*</code> holt dann den Wert an dieser Stelle.</p>
+    </details>
+</div>
+
+<div class="card">
+    <h3>Frage 4: Call-by-Value vs. Reference</h3>
+    <p>Wenn du eine Struktur an eine Funktion übergibst: <code>void calc(struct Daten d)</code>. Kannst du das Original in der <code>main</code> ändern?</p>
+    <details>
+        <summary>Lösung anzeigen</summary>
+        <p><strong>Nein.</strong> Das ist Call-by-Value. Es wird eine komplette Kopie der Struktur auf dem Stack erstellt. Änderungen betreffen nur die Kopie. <br>
+        Für Änderungen am Original müsstest du einen Pointer übergeben: <code>void calc(struct Daten *d)</code>.</p>
+    </details>
+</div>
+
+</body>
+</html>
