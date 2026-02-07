@@ -5,17 +5,18 @@
 
 #include "lib.h"
 
-void performeTestCases();
+void performTestCases();
 
 int main()
 {
 
     // TODO
-
+    performTestCases();
+    printf("Tests bestanden\n");
     return 0;
 }
 
-void performeTestCases()
+void performTestCases()
 {
     assert(stringEndsWith("anna", "a") == true);
     assert(stringEndsWith("anna", "na") == true);
@@ -25,6 +26,9 @@ void performeTestCases()
     assert(stringStartsWith("anna", "na") == false);
     assert(stringStartsWith("anna", "ann") == true);
 
-    assert(stringFindFirstNotOf("banana", "ban") == &("banana"[3]));
+    assert(stringFindFirstNotOf("banbanana", "ban") == &("banbanana"[6]));
     assert(stringFindFirstNotOf("aaaaaa", "a") == NULL);
+    assert(stringStartsWith("a", "aa") == false);
+    assert(stringEndsWith("a", "aa") == false);
+    assert(stringFindFirstNotOf("banbanX", "ban") == &("banbanX"[6]));
 }
