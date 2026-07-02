@@ -1,66 +1,58 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Hilfsfunktion zum Zusammenführen der zwei sortierten Hälften arr[l..m] und arr[m+1..r]
-void merge(int arr[], int l, int m, int r) {
-    int i, j, k;
-    int n1 = m - l + 1;
-    int n2 = r - m;
-
-    // Temporäre Arrays erstellen
+void merge(int *array, int l, int m, int r) {
+    int n1 = (m - l) + 1;
+    int n2 = (r - m);
     int *L = (int *)malloc(n1 * sizeof(int));
     int *R = (int *)malloc(n2 * sizeof(int));
 
-    // Daten in temporäre Arrays kopieren
-    for (i = 0; i < n1; i++)
-        L[i] = arr[l + i];
-    for (j = 0; j < n2; j++)
-        R[j] = arr[m + 1 + j];
+    int i = 0, j = 0, k = 0;
+    for (i = 0; i < n1; i++) {
+        L[i] = array[l + i];
+    }
 
-    // Temporäre Arrays zusammenführen
+    for (i = 0; i < n2; i++) {
+        R[i] = array[m + 1 + i];
+        k++;
+    }
+
     i = 0;
     j = 0;
     k = l;
     while (i < n1 && j < n2) {
         if (L[i] <= R[j]) {
-            arr[k] = L[i];
+            array[k] = L[i];
             i++;
         } else {
-            arr[k] = R[j];
+            array[k] = R[j];
             j++;
         }
         k++;
     }
-
-    // Restliche Elemente von L[] kopieren, falls vorhanden
     while (i < n1) {
-        arr[k] = L[i];
+        array[k] = L[i];
         i++;
         k++;
     }
 
-    // Restliche Elemente von R[] kopieren, falls vorhanden
     while (j < n2) {
-        arr[k] = R[j];
+        array[k] = R[j];
         j++;
         k++;
     }
 
-    // Speicher der temporären Arrays freigeben
-    free(L);
     free(R);
+    free(L);
 }
 
-// Rekursive Funktion zur Durchführung von Merge Sort
-void mergeSort(int arr[], int l, int r) {
+void mergeSort(int *array, int l, int r) {
     if (l < r) {
-        int m = l + (r - l) / 2;
+        int m = (r + l) / 2;
+        mergeSort(array, l, m);
+        mergeSort(array, m + 1, r);
 
-        // Erste und zweite Hälfte sortieren
-        mergeSort(arr, l, m);
-        mergeSort(arr, m + 1, r);
-
-        merge(arr, l, m, r);
+        merge(array, l, m, r);
     }
 }
 
@@ -84,4 +76,3 @@ int main() {
     printArray(arr, arr_size);
     return 0;
 }
-

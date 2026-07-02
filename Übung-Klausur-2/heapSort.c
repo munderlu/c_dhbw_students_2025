@@ -14,19 +14,17 @@ void printArray(int *array, int n) {
 }
 
 void heapify(int *array, int n, int i) {
+    int lchild = 2 * i + 1;
+    int rchild = 2 * i + 2;
     int largest = i;
-    int left = 2 * i + 1;
-    int right = 2 * i + 2;
-
-    if (left < n && array[left] > array[largest])
-        largest = left;
-
-    if (right < n && array[right] > array[largest])
-        largest = right;
-
+    if (lchild < n && array[lchild] > array[largest]) {
+        largest = lchild;
+    }
+    if (rchild < n && array[rchild] > array[largest]) {
+        largest = rchild;
+    }
+    swap(array, i, largest);
     if (largest != i) {
-        swap(array, i, largest);
-
         heapify(array, n, largest);
     }
 }
@@ -35,16 +33,17 @@ void heapSort(int *array, int n) {
     for (int i = n / 2 - 1; i >= 0; i--) {
         heapify(array, n, i);
     }
-
-    for (int i = n - 1; i > 0; i--) {
-        swap(array, 0, i);
-
-        heapify(array, i, 0);
-        printArray(array, n);
+    int i = 0;
+    while (i < n) {
+        swap(array, 0, n - i - 1);
+        heapify(array, n - i - 1, 0);
+        i++;
     }
 }
 
 int main() {
-    int array[] = {7, 6, 5, 4, 3, 2};
+    int array[] = {77, 5, 66, 100, 2, 78};
+    printArray(array, 6);
     heapSort(array, 6);
+    printArray(array, 6);
 }
